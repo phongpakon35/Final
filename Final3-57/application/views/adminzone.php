@@ -5,7 +5,7 @@
   
    
 
-  <title> ยินดีต้อนรับบรรณารักษ์ </title>
+  <title> ยินดีต้อนรับ ADMIN</title>
 	
 	<link href="<?php echo base_url('asesst/css/bootstrap.min.css');?>" rel="stylesheet" >
 	<link href="<?php echo base_url('asesst/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet">

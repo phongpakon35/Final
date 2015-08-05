@@ -28,32 +28,7 @@
 	    }
 
 		
-			$this->form_validation->set_rules('productCode', 'รหัสสินค้า', 'required|min_length[1]',
-			array(
-				'required' => '***กรุณากรอก{field}',
-				'min_length'=>'**ช่อง{field}ต้องไม่น้อยกว่า {param} ตัวอักษร'
-				)
-			);
-			$this->form_validation->set_rules('productName', 'ชื่อสินค้า', 'required|min_length[3]',
-			array(
-				'required' => '***กรุณากรอก{field}',
-				'min_length'=>'**ช่อง{field}ต้องไม่น้อยกว่า {param} ตัวอักษร'
-					
-				)
-			);
-			$this->form_validation->set_rules('productSell', 'ราคาขาย', 'required|min_length[1]',
-			array(
-				'required' => '***กรุณากรอก{field}',
-				'min_length'=>'**ช่อง{field}ต้องไม่น้อยกว่า {param} ตัวอักษร'
-				)
-			);
-			$this->form_validation->set_rules('productSellMember', 'ราคาสมาชิก', 'required|min_length[1]',
-			array(
-				'required' => '***กรุณากรอก{field}',
-				'min_length'=>'**ช่อง{field}ต้องไม่น้อยกว่า {param} ตัวอักษร'
-				)
-			);
-			$this->form_validation->set_rules('warranty', 'ประกัน', 'required|min_length[1]',
+			$this->form_validation->set_rules('id', 'รหัส ID', 'required|min_length[1]',
 			array(
 				'required' => '***กรุณากรอก{field}',
 				'min_length'=>'**ช่อง{field}ต้องไม่น้อยกว่า {param} ตัวอักษร'
@@ -72,6 +47,7 @@
                 else
                 {
                 				$this->load->model('product');
+                				$this->product->setId($this->input->post('id'));
 		                        $this->product->setProductCode($this->input->post('productCode'));
 		                        $this->product->setProductName($this->input->post('productName'));
 		                        $this->product->setProductSell($this->input->post('productSell'));
@@ -79,7 +55,7 @@
 		                        $this->product->setWarranty($this->input->post('warranty'));
 		                        $this->product->update();
  								$this->load->view('edit');
- 								echo "<script language='javascript'>alert('บันทึกสินค้าเรียบร้อยแล้ว!');</script>";
+ 								echo "<script language='javascript'>alert('แก้ไขสินค้าเรียบร้อยแล้ว!');</script>";
                 } 
 
  			

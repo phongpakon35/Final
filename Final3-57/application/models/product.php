@@ -129,37 +129,20 @@ class Product extends CI_model
 
 					  );
 	
-		$this->db->where('productCode', 		$this->getProductCode());
-		$this->db->where('productName', 		$this->getProductName());
-		$this->db->where('productSell', 		$this->getProductSell());
-		$this->db->where('productSellMember', 	$this->getProductSellMember());
-		$this->db->where('warranty', 			$this->getWarranty());
-
+		$this->db->where('id', $this->getId());
 		$this->db->update('products', $data);
 	}
 
 ###################################### update ######################################
-	###################################### findByPk ######################################
-
-	function findByPk($pk)
-	{
-		$query=$this->db->query
-			('
-				SELECT name,picture WHERE id LIKE "%'. $pk .'%"
-			');
-			
-		return $query;
-	}
-###################################### findByPk ######################################
 
 
 ###################################### findByAll ######################################
 
-	function findByAll($All)
+	public function findByAll()
 	{
 		$query=$this->db->query
 			('
-				SELECT id,name,picture  FROM member WHERE id  
+				SELECT * FROM products 
 			');
 			
 		return $query;

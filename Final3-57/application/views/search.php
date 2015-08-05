@@ -3,7 +3,7 @@
  <head>
   
    <meta charset="UTF-8">
-  <title> ค้นหาหนังสือ </title>
+  <title> ค้นหาสินค้า </title>
     <link href="<?php echo base_url('asesst/css/bootstrap.min.css');?>" rel="stylesheet" >
     <link href="<?php echo base_url('asesst/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('asesst/css/freelancer.css');?>" rel="stylesheet">
@@ -224,9 +224,9 @@
 
   }
 
-  .topic{
+  .success{
  
-    font-size: 20px;
+    font-size: 18px;
     font-style:italic;
     font-weight:bold;
     padding: 5px;
@@ -235,6 +235,8 @@
 
 
   }
+
+  
 </style>
 
 
@@ -247,12 +249,12 @@
  <body>
 
 
-    <div class="site-wrapper" >
+    <div class="site-wrapper" action="<?php echo base_url('index.php/Search');?>">
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Library</h3>
+              <h3 class="masthead-brand">บริษัทสตาร์เวย์</h3>
 
               <ul class="nav masthead-nav">
                 <li >
@@ -266,66 +268,88 @@
               </ul>
             </div>
           </div>
-          			<div class="inner cover">
-          			 <form class="form-horizontal" role="form" method="post" action="<?php echo base_url('index.php/Search');?>" >
-          <div class="form-group dd">
-          <label for="inputEmail3" class="col-sm-2 control-label ">ค้นหา</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" name="name"></br>
+          			
 
-            </div>
-              <button type="submit" class="btn btn-info">ค้นหา</button>
-          </div>
 
-        </form>
-						</br> 
 
-                        <table class="table">
+                   <table class="table">
                         <thead>
-                          <tr class='topic' >
+                          <tr class="success"' >
                             <td><?php
 
-                                  if($showbook)
+                                  if($Dataall)
                                   {
                                    
                                     {
-                                    echo 'รหัส ISBN';
-
+                                    echo '#รหัสสินค้า';
+                                   
                                     }
                                   }
-                                 
                                   else
                                   {
-                                    
-
+                                   
                                   }
 
-                                ?>    
+                                ?>
                           </td>
                            <td><?php
 
-                                  if($showbook)
+                                  if($Dataall)
                                   {
-                                    
+                                   
                                     {
-                                    echo 'ชื่อหนังสือ';
+                                    echo 'ชื่อสินค้า';
                                    
                                     }
                                   }
                                   else
                                   {
-                                     
+                                   
                                   }
 
                                 ?>
                           </td> 
                           <td><?php
 
-                                  if($showbook)
+                                  if($Dataall)
                                   {
                                    
                                     {
-                                    echo 'ผู้แต่ง';
+                                    echo 'ราคาขาย';
+                                   
+                                    }
+                                  }
+                                  else
+                                  {
+                                   
+                                  }
+
+                                ?>
+                          </td>
+                          <td><?php
+
+                                  if($Dataall)
+                                  {
+                                   
+                                    {
+                                    echo 'ราคาสมาชิก';
+                                   
+                                    }
+                                  }
+                                  else
+                                  {
+                                   
+                                  }
+
+                                ?>
+                          </td>
+                          <td><?php
+
+                                  if($Dataall)
+                                  {
+                                   
+                                    {
+                                    echo 'ประกัน';
                                    
                                     }
                                   }
@@ -340,69 +364,68 @@
                        </thead>
 
                        <tbody>
-                         <tr> 
-                           <td>  <?php
-
-                                  if($showbook)
+                         <tr  > 
+                           <td class="warning">   <?php
+                                  if($Dataall)
                                   {
-                                    foreach($showbook->result() as $lb)
+                                  foreach($Dataall->result() as $Dataall1)
                                     {
-                                    echo $lb->ISBN.'<br>';
-                                   
+                                      
+                                      echo $Dataall1->productCode.'<br>'.'<br>' ;
+                                    
                                     }
                                   }
-                                  else
-                                  {
-                                      
-                                  }
-
-                                ?>     
+                                    else
+                                    {
+                                       
+                                    }
+                                    ?>    
                           </td> 
-                          <td >  <?php
-
-                                if($showbook)
-                                {
-                                  foreach($showbook->result() as $lb)
+                          <td class="danger" >   <?php
+                                  foreach($Dataall->result() as $Dataall1)
                                   {
+                                    
+                                    echo $Dataall1->productName.'<br>'.'<br>';
                                   
-                                  echo $lb->bookname.'<br>';
-                                 
                                   }
-                                }
-                                else
-                                {
-                                     
-                                }
-
-                              ?>    
+                                  ?>    
                           </td>
 
-                          <td>  <?php
-
-                                if($showbook)
-                                {
-                                  foreach($showbook->result() as $lb)
+                          <td class="warning">  <?php
+                                  foreach($Dataall->result() as $Dataall1)
                                   {
+                                    
+                                    echo $Dataall1->productSell.'<br>'.'<br>';
                                   
-                                   echo $lb->author.'<br>';
-                                 
                                   }
-                                }
-                                else
-                                {
-                                   
-                                }
-
-                              ?>    
+                                  ?>    
+                          </td>
+                          <td class="warning">  <?php
+                                  foreach($Dataall->result() as $Dataall1)
+                                  {
+                                    
+                                    echo $Dataall1->productSellMember.'<br>'.'<br>';
+                                  
+                                  }
+                                  ?>    
+                          </td>
+                          <td class="danger">  <?php
+                                  foreach($Dataall->result() as $Dataall1)
+                                  {
+                                    
+                                    echo $Dataall1->warranty.'<br>'.'<br>';
+                                  
+                                  }
+                                  ?>    
                           </td>
 
                         </tr>
                        <tbody>
                      </table>
 
-                   
+          	         
+                           
 
-					</div>
 					         
           <div class="mastfoot">
             <div class="inner">

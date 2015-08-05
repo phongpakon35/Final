@@ -5,7 +5,7 @@
   
    
 
-  <title> ยินดีต้อนรับบรรณารักษ์ </title>
+  <title> ยินดีต้อนรับ ADMIN </title>
 	
 	<link href="<?php echo base_url('asesst/css/bootstrap.min.css');?>" rel="stylesheet" >
 	<link href="<?php echo base_url('asesst/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet">
@@ -242,6 +242,13 @@
   			
 		      <div class="inner cover" >
 		        <form class="form-horizontal" action="<?php echo base_url('index.php/Edit/checkedit');?>" method="post" >
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">ไอดี ID</label>
+				    <div class="col-sm-5">
+				      <input type="text" name="id" class="form-control" id="inputEmail3" placeholder="ไอดี ID">
+				    </div>
+				  </div>
+
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">รหัสสิค้า</label>
 				    <div class="col-sm-5">
