@@ -45,7 +45,7 @@
     			//echo 'Pass';
     			setcookie('username',$this->input->post('username'),(time()+3600),'/');
     			setcookie('password',$this->input->post('password'),(time()+3600),'/');
-                redirect(base_url('index.php/updatebook/checkupdate'));
+                redirect(base_url('index.php/Update/checkupdate'));
     		}
     		else
     		{

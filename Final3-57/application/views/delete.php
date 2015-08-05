@@ -225,11 +225,11 @@
 		            </li>
 
 		            <li class="#">
-		              <a href="#">แก้ไขสินค้า</a>
+		              <a href="<?php echo base_url('index.php/Edit/checkedit');?>">แก้ไขสินค้า</a>
 		            </li>
 
 		            <li class="active">
-		              <a href="#">ลบหนังสินค้า</a>
+		              <a href="#">ลบสินค้า</a>
 		            </li>
 
 		            <li>

@@ -1,6 +1,6 @@
 <?php
 	defined ('BASEPATH') OR exit('No direct script access allowed');    
-	class Update extends CI_Controller
+	class Edit extends CI_Controller
 	{
 		
 		public function __construct()
@@ -10,7 +10,7 @@
 			$this->load->library('form_validation');
 		}
 		
-		public function checkupdate()
+		public function checkedit()
 		{
 		if(isset($_COOKIE['username'])&& isset($_COOKIE['password']))//isset คือการตรวจสอบค่าว่ามียุมัย
 	    {
@@ -65,7 +65,7 @@
 			if ($this->form_validation->run() == FALSE)
                 {
                 		$data ['error']='';
-                        $this->load->view('adminzone',$data);
+                        $this->load->view('edit',$data);
 
 
                 }
@@ -77,8 +77,8 @@
 		                        $this->product->setProductSell($this->input->post('productSell'));
 		                        $this->product->setProductSellMember($this->input->post('productSellMember'));
 		                        $this->product->setWarranty($this->input->post('warranty'));
-		                        $this->product->add();
- 								$this->load->view('adminzone');
+		                        $this->product->update();
+ 								$this->load->view('edit');
  								echo "<script language='javascript'>alert('บันทึกสินค้าเรียบร้อยแล้ว!');</script>";
                 } 
 

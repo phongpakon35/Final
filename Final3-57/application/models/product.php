@@ -115,21 +115,57 @@ class Product extends CI_model
 	
 ###################################### delete ######################################
 
-###################################### findByName ######################################	 
-	 public function findByName($name)
+###################################### update ######################################
+
+	public function update()
+	{
+		$data = array(
+				'id'                        =>  $this->getId(),
+				'productCode'  				=> 	$this->getProductCode(),
+				'productName' 				=> 	$this->getProductName(),
+				'productSell' 				=> 	$this->getProductSell(),
+				'productSellMember' 		=> 	$this->getProductSellMember(),
+				'warranty' 					=> 	$this->getWarranty()
+
+					  );
+	
+		$this->db->where('productCode', 		$this->getProductCode());
+		$this->db->where('productName', 		$this->getProductName());
+		$this->db->where('productSell', 		$this->getProductSell());
+		$this->db->where('productSellMember', 	$this->getProductSellMember());
+		$this->db->where('warranty', 			$this->getWarranty());
+
+		$this->db->update('products', $data);
+	}
+
+###################################### update ######################################
+	###################################### findByPk ######################################
+
+	function findByPk($pk)
 	{
 		$query=$this->db->query
 			('
-				SELECT bookname, ISBN, author
-		
-				FROM products  WHERE bookname LIKE "%'. $name .'%" OR
-        				         ISBN LIKE "%'. $name .'%" OR
-        				         author LIKE "%'. $name .'%" ORDER BY bookname
+				SELECT name,picture WHERE id LIKE "%'. $pk .'%"
 			');
-
+			
 		return $query;
 	}
-###################################### findByName ######################################	 
+###################################### findByPk ######################################
+
+
+###################################### findByAll ######################################
+
+	function findByAll($All)
+	{
+		$query=$this->db->query
+			('
+				SELECT id,name,picture  FROM member WHERE id  
+			');
+			
+		return $query;
+	}
+###################################### findByAll ######################################
+
 
 }
 ?>

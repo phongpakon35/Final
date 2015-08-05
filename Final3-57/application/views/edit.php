@@ -212,7 +212,7 @@
  <body>
 
 
- 		<div class="site-wrapper" action="<?php echo base_url('index.php/Update');?>">
+ 		<div class="site-wrapper" action="<?php echo base_url('index.php/Edit');?>">
 		  <div class="site-wrapper-inner">
 		    <div class="cover-container">
 		      <div class="masthead clearfix">
@@ -220,12 +220,12 @@
 		          <h3 class="masthead-brand">สวัสดี ADMIN</h3>
 
 		          <ul class="nav masthead-nav">
-		            <li class="active">
-		              <a href="#">เพิ่มสินค้า</a>
+		            <li class="#">
+		              <a href="<?php echo base_url('index.php/Update/checkupdate');?>">เพิ่มสินค้า</a>
 		            </li>
 
-		            <li class="#">
-		              <a href="<?php echo base_url('index.php/Edit/checkedit');?>">แก้ไขสินค้า</a>
+		            <li class="active">
+		              <a href="#">แก้ไขสินค้า</a>
 		            </li>
 
 		             <li class="#">
@@ -241,7 +241,7 @@
 		      </div>
   			
 		      <div class="inner cover" >
-		        <form class="form-horizontal" action="<?php echo base_url('index.php/Update/checkupdate');?>" method="post" >
+		        <form class="form-horizontal" action="<?php echo base_url('index.php/Edit/checkedit');?>" method="post" >
 				  <div class="form-group">
 				    <label for="inputEmail3" class="col-sm-2 control-label">รหัสสิค้า</label>
 				    <div class="col-sm-5">
@@ -274,7 +274,7 @@
 				  </div>		
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-2">
-				      <button type="submit" class="btn btn-default" >เพิ่มสินค้า</button>
+				      <button type="submit" class="btn btn-default" >แก้ไขสินค้า</button>
 				      	
 				    </div>
 				  </div>  
